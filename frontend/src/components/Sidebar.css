@@ -1,0 +1,244 @@
+.sidebar {
+  width: 300px;
+  height: 100%;
+  background-color: var(--secondary);
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-header {
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.model-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: bold;
+  color: var(--text);
+}
+
+.model-icon-small {
+  font-size: 1.2rem;
+  color: var(--accent);
+}
+
+/* Conversation List Styles */
+.conversation-list {
+  flex: 1;
+  overflow-y: auto;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.conversation-item {
+  position: relative;
+  padding: 0.8rem;
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.03);
+  cursor: pointer;
+  transition: background-color 0.2s;
+  border-left: 3px solid transparent;
+}
+
+.conversation-item.active {
+  background-color: rgba(0, 0, 0, 0.08);
+  border-left-color: var(--accent);
+}
+
+.dark-theme .conversation-item {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.dark-theme .conversation-item.active {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.conversation-item:hover {
+  background-color: rgba(0, 0, 0, 0.06);
+}
+
+.dark-theme .conversation-item:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.conversation-title {
+  font-weight: bold;
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+  color: var(--text);
+  padding-right: 24px; /* Space for delete button */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.conversation-date {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.delete-conversation {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  padding: 0.2rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.2s, color 0.2s;
+  border-radius: 4px;
+}
+
+.conversation-item:hover .delete-conversation {
+  opacity: 1;
+}
+
+.delete-conversation:hover {
+  color: #ff4d4f;
+  background-color: rgba(255, 77, 79, 0.1);
+}
+
+.new-chat-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.6rem;
+  border-radius: 8px;
+  background-color: var(--accent);
+  color: white;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.new-chat-button:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.loading-conversations {
+  text-align: center;
+  padding: 1rem;
+  color: var(--text-muted);
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+.no-conversations {
+  text-align: center;
+  padding: 1rem;
+  color: var(--text-muted);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.start-chat-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.05);
+  color: var(--text);
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  font-size: 0.9rem;
+}
+
+.start-chat-button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.dark-theme .start-chat-button {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-theme .start-chat-button:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Sidebar Buttons */
+.sidebar-buttons {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.sidebar-button {
+  background: none;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text);
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+  font-size: 1.2rem;
+}
+
+.sidebar-button:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.dark-theme .sidebar-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 70px;
+  }
+  
+  .model-info span,
+  .new-chat-button span {
+    display: none;
+  }
+  
+  .new-chat-button {
+    padding: 0.6rem;
+  }
+  
+  .conversation-title,
+  .conversation-date {
+    display: none;
+  }
+  
+  .conversation-item {
+    display: flex;
+    justify-content: center;
+    padding: 0.6rem;
+    height: 40px;
+  }
+  
+  .conversation-item:before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    background-color: var(--accent);
+    border-radius: 50%;
+  }
+} 
